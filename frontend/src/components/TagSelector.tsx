@@ -23,13 +23,14 @@ const TagSelector = ({ ingredients, onSelect }: TagSelectorProps) => {
     onSelect(updatedIngredients);
   };
 
-  // Object associant les ingrédients aux emojis
   const commonIngredients: { [key: string]: string } = {
     'pâtes': '🍝',
     'fromage': '🧀',
     'tomates': '🍅',
     'œufs': '🥚',
     'riz': '🍚',
+    'lait' : '🐮',
+    'oignons' : '🧅'
   };
 
   return (
