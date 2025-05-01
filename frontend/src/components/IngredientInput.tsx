@@ -1,8 +1,12 @@
 import { useState } from 'react';
 
-const IngredientInput = () => {
+interface IngredientInputProps {
+  ingredients: string[];
+  setIngredients: (ingredients: string[]) => void;
+}
+
+const IngredientInput = ({ ingredients, setIngredients }: IngredientInputProps) => {
   const [input, setInput] = useState('');
-  const [ingredients, setIngredients] = useState<string[]>([]);
 
   const handleAdd = () => {
     const trimmed = input.trim();
@@ -10,10 +14,6 @@ const IngredientInput = () => {
       setIngredients([...ingredients, trimmed]);
       setInput('');
     }
-  };
-
-  const handleRemove = (index: number) => {
-    setIngredients(ingredients.filter((_, i) => i !== index));
   };
 
   return (
@@ -26,16 +26,8 @@ const IngredientInput = () => {
         placeholder="Ajoute un ingrédient"
       />
       <button onClick={handleAdd}>Ajouter</button>
-
-      <ul>
-        {ingredients.map((ing, index) => (
-          <li key={index}>
-            {ing} <button onClick={() => handleRemove(index)}>✖</button>
-          </li>
-        ))}
-      </ul>
     </div>
   );
-}
+};
 
 export default IngredientInput;
