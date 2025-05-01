@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import './style.css'
+import commonIngredients from '../data/ingredients.json'
 
 interface TagSelectorProps {
   ingredients: string[];
@@ -23,26 +25,12 @@ const TagSelector = ({ ingredients, onSelect }: TagSelectorProps) => {
     onSelect(updatedIngredients);
   };
 
-  const commonIngredients: { [key: string]: string } = {
-    'pâtes': '🍝',
-    'fromage': '🧀',
-    'tomates': '🍅',
-    'œufs': '🥚',
-    'riz': '🍚',
-    'lait' : '🐮',
-    'oignons' : '🧅'
-  };
-
   return (
     <div className="flex gap-2 flex-wrap">
       {Object.keys(commonIngredients).map((ingredient) => (
         <button
           key={ingredient}
-          className={`px-3 py-1 rounded-full border ${
-            selectedIngredients.includes(ingredient)
-              ? 'bg-green-300'
-              : 'hover:bg-gray-100'
-          }`}
+          className={selectedIngredients.includes(ingredient) ? 'tag-selected' : ''}
           onClick={() => handleClick(ingredient)}
           title={ingredient}
         >

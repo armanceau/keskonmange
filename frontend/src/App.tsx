@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import TagSelector from './components/TagSelector';
 import IngredientInput from './components/IngredientInput';
+import './App.css'
 
 const App = () => {
   const [ingredients, setIngredients] = useState<string[]>([]);
