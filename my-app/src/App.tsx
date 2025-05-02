@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import TagSelector from './components/TagSelector';
 import IngredientInput from './components/IngredientInput';
 import './App.css'
@@ -14,8 +14,23 @@ const App = () => {
     setIngredients(ingredients.filter(ing => ing !== ingredient));
   };
 
+  const [key, setKey] = useState<string>('');
+
+  useEffect(() => {
+    fetch('/api/test-key')
+      .then(res => res.json())
+      .then(data => setKey(data.key));
+  }, []);
+
+  console.log("ma clé : " + key)
+
   return (
     <>
+    <div>
+      <h2>Clé Mistral (test) :</h2>
+      <code>{key}</code>
+    </div>
+
       <IngredientInput ingredients={ingredients} setIngredients={setIngredients} />
       
       <TagSelector ingredients={ingredients} onSelect={handleSelect} />
