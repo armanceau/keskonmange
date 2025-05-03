@@ -53,7 +53,7 @@ const IngredientInput = ({ ingredients, setIngredients }: IngredientInputProps) 
         value={input}
         className='ingredientInput'
         onChange={(e) => setInput(e.target.value)}
-        placeholder="Ajoute un ingrédient"
+        placeholder="➕ Ajoute un ingrédient"
       />
       {error && <div style={{ color: 'red' }}>{error}</div>}
       <button className='custom-button' onClick={handleAdd}>Ajouter</button>

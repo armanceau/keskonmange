@@ -30,7 +30,7 @@ const TagSelector = ({ ingredients, onSelect }: TagSelectorProps) => {
       {Object.keys(commonIngredients).map((ingredient) => (
         <button
           key={ingredient}
-          className={selectedIngredients.includes(ingredient) ? 'tag-selected' : ''}
+          className={selectedIngredients.includes(ingredient) ? 'tag-selected' : '' + 'custom-button'}
           onClick={() => handleClick(ingredient)}
           title={ingredient}
         >

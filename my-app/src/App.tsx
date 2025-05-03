@@ -55,27 +55,26 @@ const App = () => {
       
       <h3>Ingrédients sélectionnés :</h3>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-  {ingredients.map((ingredient, index) => (
-    <div 
-      key={index} 
-      className='list-tag'
-    >
-      {ingredient} 
-      <button 
-        onClick={() => handleRemove(ingredient)} 
-        style={{ 
-          color: 'red', 
-          border: 'none', 
-          background: 'none', 
-          cursor: 'pointer' 
-        }}
-      >
-        ✖
-      </button>
-    </div>
-  ))}
-</div>
-
+        {ingredients.map((ingredient, index) => (
+          <div 
+            key={index} 
+            className='list-tag'
+          >
+            {ingredient}
+            <button 
+              onClick={() => handleRemove(ingredient)} 
+              style={{ 
+                color: 'red', 
+                border: 'none', 
+                background: 'none', 
+                cursor: 'pointer' 
+              }}
+            >
+              ✖
+            </button>
+          </div>
+        ))}
+      </div>
 
       <button
         onClick={callMistral}
