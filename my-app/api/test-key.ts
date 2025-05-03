@@ -7,6 +7,28 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(500).json({ error: "Clé API non trouvée 🕵️‍♂️" });
   }
 
+  const { ingredients } = req.body; 
+
+  if (!ingredients || ingredients.length === 0) {
+    return res.status(400).json({ error: "Aucun ingrédient fourni." });
+  }
+
+  const prompt = `
+    Tu es un chef cuisinier expert. En te basant uniquement sur les ingrédients suivants : ${ingredients.join(
+      ", "
+    )},
+    propose-moi une recette rapide, adaptée aux étudiants, en moins de 25 minutes, sans nécessiter un four. 
+    La recette doit être simple, facile à réaliser avec peu d'ustensiles. 
+    La recette doit utiliser uniquement les ingrédients exprimés sans ajouter rien d'autre à part des épices et de l'huile.
+    Concentre-toi uniquement sur les aliments reconnus et comestibles.
+    Voici ce que je souhaite :
+    - Titre de la recette
+    - Temps de préparation (maximum 20 minutes)
+    - Liste complète des ingrédients avec les quantités approximatives
+    - Étapes de la préparation détaillées, en prenant soin de ne pas inclure de cuisson au four
+    - Astuces pour rendre la recette encore plus rapide ou pour des variantes possibles avec peu d'ingrédients
+    `.trim();
+
   try {
     const response = await fetch('https://api.mistral.ai/v1/chat/completions', {
       method: 'POST',
@@ -18,8 +40,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         model: 'mistral-tiny',
         messages: [
           {
+            role: 'system',
+            content: 'Tu es un assistant culinaire amical et précis.',
+          },
+          {
             role: 'user',
-            content: 'Quel est le meilleur fromage français ?',
+            content: prompt,
           },
         ],
       }),

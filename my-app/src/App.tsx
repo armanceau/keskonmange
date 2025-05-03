@@ -5,6 +5,7 @@ import './App.css'
 
 const App = () => {
   const [ingredients, setIngredients] = useState<string[]>([]);
+  const [loading, setLoading] = useState(false);
 
   const handleSelect = (updatedIngredients: string[]) => {
     setIngredients(updatedIngredients);
@@ -15,9 +16,18 @@ const App = () => {
   };
 
   const callMistral = async () => {
+    if (ingredients.length === 0) return;
+  
+    setLoading(true);
     try {
       const res = await fetch('/api/test-key', {
         method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ingredients: ingredients,
+        }),
       });
   
       const data = await res.json();
@@ -25,8 +35,11 @@ const App = () => {
       alert(data.result);
     } catch (error) {
       console.error('Erreur côté front:', error);
+    } finally {
+      setLoading(false);
     }
   };
+  
 
   return (
     <>
@@ -45,8 +58,12 @@ const App = () => {
         ))}
       </ul>
 
-      <button onClick={callMistral} style={{ marginTop: '20px' }}>
-        Générer la recette 🍽️
+      <button
+        onClick={callMistral}
+        style={{ marginTop: '20px' }}
+        disabled={ingredients.length === 0 || loading}
+      >
+        {loading ? 'Chargement...' : 'Générer la recette 🍽️'}
       </button>
     </>
   );
