@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
-const handler = (req: VercelRequest, res: VercelResponse) => {
+export default function handler(req: VercelRequest, res: VercelResponse){
   const apiKey = process.env.MISTRAL_API_KEY;
 
   if (!apiKey) {
@@ -9,5 +9,3 @@ const handler = (req: VercelRequest, res: VercelResponse) => {
 
   res.status(200).json({ key: apiKey });
 }
-
-export default handler
