@@ -1,0 +1,27 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "api/**/*",
+        "use": "@vercel/node"
+      },
+      {
+        "src": "src/frontend/**/*",
+        "use": "@vercel/static"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/test-key",
+        "dest": "/src/api/test-key.ts"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/src/frontend/$1"
+      }
+    ],
+    "env": {
+      "VITE_API_KEY": "@vite_api_key"
+    }
+  }
+  
