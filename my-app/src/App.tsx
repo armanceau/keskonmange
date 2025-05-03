@@ -54,18 +54,32 @@ const App = () => {
       <hr />
       
       <h3>Ingrédients sélectionnés :</h3>
-      <ul>
-        {ingredients.map((ingredient, index) => (
-          <li key={index}>{ingredient} <button 
-          onClick={() => handleRemove(ingredient)} 
-          style={{ marginLeft: '8px', color: 'red' }}>
-          ✖
-        </button></li>
-        ))}
-      </ul>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+  {ingredients.map((ingredient, index) => (
+    <div 
+      key={index} 
+      className='list-tag'
+    >
+      {ingredient} 
+      <button 
+        onClick={() => handleRemove(ingredient)} 
+        style={{ 
+          color: 'red', 
+          border: 'none', 
+          background: 'none', 
+          cursor: 'pointer' 
+        }}
+      >
+        ✖
+      </button>
+    </div>
+  ))}
+</div>
+
 
       <button
         onClick={callMistral}
+        className='custom-button'
         style={{ marginTop: '20px' }}
         disabled={ingredients.length === 0 || loading}
       >
