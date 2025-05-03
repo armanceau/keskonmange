@@ -3,6 +3,8 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   const apiKey = process.env.VITE_API_KEY;
 
+  console.log(apiKey)
+
   if (!apiKey) {
     return res.status(500).json({ error: "Clé API non trouvée 🕵️‍♂️" });
   }
