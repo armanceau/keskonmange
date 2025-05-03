@@ -14,26 +14,31 @@ const App = () => {
     setIngredients(ingredients.filter(ing => ing !== ingredient));
   };
 
-  const [key, setKey] = useState<string>('');
-
-  useEffect(() => {
-    fetch('/api/test-key')
-      .then(res => res.json())
-      .then(data => setKey(data.key));
-  }, []);
-
-  console.log("ma clé : " + key)
+  const callMistral = async () => {
+    try {
+      const res = await fetch('/api/mistral', {
+        method: 'POST',
+      });
+  
+      const data = await res.json();
+      console.log('Réponse de Mistral:', data.result);
+      alert(data.result);
+    } catch (error) {
+      console.error('Erreur côté front:', error);
+    }
+  };
+  
 
   return (
     <>
-    <div>
-      <h2>Clé Mistral (test) :</h2>
-      <code>{key}</code>
-    </div>
-
       <IngredientInput ingredients={ingredients} setIngredients={setIngredients} />
       
       <TagSelector ingredients={ingredients} onSelect={handleSelect} />
+
+      <button onClick={callMistral} style={{ marginTop: '20px' }}>
+        Générer une recette avec Mistral 🍽️
+      </button>
+
       
       <h3>Ingrédients sélectionnés :</h3>
       <ul>
