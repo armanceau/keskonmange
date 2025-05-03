@@ -14,6 +14,20 @@ const App = () => {
     setIngredients(ingredients.filter(ing => ing !== ingredient));
   };
 
+  const callMistral = async () => {
+    try {
+      const res = await fetch('/api/test-key', {
+        method: 'POST',
+      });
+  
+      const data = await res.json();
+      console.log('Réponse de Mistral:', data.result);
+      alert(data.result);
+    } catch (error) {
+      console.error('Erreur côté front:', error);
+    }
+  };
+
   return (
     <>
       <IngredientInput ingredients={ingredients} setIngredients={setIngredients} />
@@ -30,6 +44,10 @@ const App = () => {
         </button></li>
         ))}
       </ul>
+
+      <button onClick={callMistral} style={{ marginTop: '20px' }}>
+        Générer la recette 🍽️
+      </button>
     </>
   );
 };
