@@ -7,6 +7,24 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(500).json({ error: "Clé API non trouvée 🕵️‍♂️" });
   }
 
+  const { ingredients } = req.body; 
+
+  if (!ingredients || ingredients.length === 0) {
+    return res.status(400).json({ error: "Aucun ingrédient fourni." });
+  }
+
+  const prompt = `
+    Tu es un chef cuisinier expert. En te basant sur ces ingrédients : ${ingredients.join(
+      ", "
+    )},
+    propose-moi une recette adaptée aux étudiants :
+    - Titre de la recette
+    - Temps de préparation
+    - Liste complète des ingrédients (avec quantités approximatives)
+    - Étapes détaillées de la préparation
+    - Astuces et variantes possibles
+  `.trim();
+
   try {
     const response = await fetch('https://api.mistral.ai/v1/chat/completions', {
       method: 'POST',
@@ -18,8 +36,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         model: 'mistral-tiny',
         messages: [
           {
+            role: 'system',
+            content: 'Tu es un assistant culinaire amical et précis.',
+          },
+          {
             role: 'user',
-            content: 'Quel est le meilleur fromage français ?',
+            content: prompt,
           },
         ],
       }),

@@ -5,6 +5,7 @@ import './App.css'
 
 const App = () => {
   const [ingredients, setIngredients] = useState<string[]>([]);
+  const [loading, setLoading] = useState(false);
 
   const handleSelect = (updatedIngredients: string[]) => {
     setIngredients(updatedIngredients);
@@ -15,9 +16,31 @@ const App = () => {
   };
 
   const callMistral = async () => {
+    if (ingredients.length === 0) return;
+  
+    const prompt = `
+      Tu es un chef cuisinier expert. En te basant sur ces ingrédients : ${ingredients.join(
+        ", "
+      )},
+      propose-moi une recette adaptée aux étudiants :
+      - Titre de la recette
+      - Temps de préparation
+      - Liste complète des ingrédients (avec quantités approximatives)
+      - Étapes détaillées de la préparation
+      - Astuces et variantes possibles
+    `.trim();
+  
+    setLoading(true);
     try {
       const res = await fetch('/api/test-key', {
         method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ingredients: ingredients,
+          prompt: prompt,
+        }),
       });
   
       const data = await res.json();
@@ -25,8 +48,11 @@ const App = () => {
       alert(data.result);
     } catch (error) {
       console.error('Erreur côté front:', error);
+    } finally {
+      setLoading(false);
     }
   };
+  
 
   return (
     <>
@@ -45,8 +71,12 @@ const App = () => {
         ))}
       </ul>
 
-      <button onClick={callMistral} style={{ marginTop: '20px' }}>
-        Générer la recette 🍽️
+      <button
+        onClick={callMistral}
+        style={{ marginTop: '20px' }}
+        disabled={ingredients.length === 0 || loading}
+      >
+        {loading ? 'Chargement...' : 'Générer la recette 🍽️'}
       </button>
     </>
   );
