@@ -21,7 +21,7 @@
       }
     ],
     "env": {
-      "VITE_API_KEY": "@vite_api_key"
+      "VITE_API_KEY": "@VITE_API_KEY"
     }
   }
   
