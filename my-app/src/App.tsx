@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import TagSelector from './components/TagSelector';
 import IngredientInput from './components/IngredientInput';
-import './App.css'
+import './assets/style.css'
 
 const App = () => {
   const [ingredients, setIngredients] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
+  const [recipe, setRecipe] = useState<string>('');
 
   const handleSelect = (updatedIngredients: string[]) => {
     setIngredients(updatedIngredients);
@@ -32,7 +33,7 @@ const App = () => {
   
       const data = await res.json();
       console.log('Réponse de Mistral:', data.result);
-      alert(data.result);
+      setRecipe(data.result);
     } catch (error) {
       console.error('Erreur côté front:', error);
     } finally {
@@ -43,9 +44,14 @@ const App = () => {
 
   return (
     <>
+      <h1>KeskonMange ? 🍕</h1>
       <IngredientInput ingredients={ingredients} setIngredients={setIngredients} />
-      
+
+      <br />
+
       <TagSelector ingredients={ingredients} onSelect={handleSelect} />
+
+      <hr />
       
       <h3>Ingrédients sélectionnés :</h3>
       <ul>
@@ -65,6 +71,13 @@ const App = () => {
       >
         {loading ? 'Chargement...' : 'Générer la recette 🍽️'}
       </button>
+
+      {recipe && (
+          <div style={{ marginTop: '20px' }}>
+            <h2>Recette proposée :</h2>
+            <p>{recipe}</p>
+          </div>
+        )}
     </>
   );
 };
