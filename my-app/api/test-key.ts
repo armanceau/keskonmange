@@ -6,8 +6,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (!apiKey) {
     return res.status(500).json({ error: "Clé API non trouvée 🕵️‍♂️" });
   }
-
-  console.log("API KEY utilisée:", apiKey)
+  else{
+    console.log("Clé API trouvée 🕵️‍♂️ : " + apiKey)
+  }
 
   try {
     const response = await fetch('https://api.mistral.ai/v1/chat/completions', {
