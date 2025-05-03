@@ -26,7 +26,7 @@ const TagSelector = ({ ingredients, onSelect }: TagSelectorProps) => {
   };
 
   return (
-    <div className="flex gap-05 flex-wrap">
+    <div className="flex gap-05 flex-wrap content-center">
       {Object.keys(commonIngredients).map((ingredient) => (
         <button
           key={ingredient}
