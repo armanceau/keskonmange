@@ -27,18 +27,12 @@ const App = () => {
       console.error('Erreur côté front:', error);
     }
   };
-  
 
   return (
     <>
       <IngredientInput ingredients={ingredients} setIngredients={setIngredients} />
       
       <TagSelector ingredients={ingredients} onSelect={handleSelect} />
-
-      <button onClick={callMistral} style={{ marginTop: '20px' }}>
-        Générer une recette avec Mistral 🍽️
-      </button>
-
       
       <h3>Ingrédients sélectionnés :</h3>
       <ul>
@@ -50,6 +44,10 @@ const App = () => {
         </button></li>
         ))}
       </ul>
+
+      <button onClick={callMistral} style={{ marginTop: '20px' }}>
+        Générer la recette 🍽️
+      </button>
     </>
   );
 };
