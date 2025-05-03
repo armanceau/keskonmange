@@ -14,16 +14,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   const prompt = `
-    Tu es un chef cuisinier expert. En te basant sur ces ingrédients : ${ingredients.join(
+    Tu es un chef cuisinier expert. En te basant uniquement sur les ingrédients suivants : ${ingredients.join(
       ", "
     )},
-    propose-moi une recette adaptée aux étudiants :
+    propose-moi une recette rapide, adaptée aux étudiants, en moins de 25 minutes, sans nécessiter un four. 
+    La recette doit être simple, facile à réaliser avec peu d'ustensiles. 
+    Voici ce que je souhaite :
     - Titre de la recette
-    - Temps de préparation
-    - Liste complète des ingrédients (avec quantités approximatives)
-    - Étapes détaillées de la préparation
-    - Astuces et variantes possibles
-  `.trim();
+    - Temps de préparation (maximum 20 minutes)
+    - Liste complète des ingrédients avec les quantités approximatives
+    - Étapes de la préparation détaillées, en prenant soin de ne pas inclure de cuisson au four
+    - Astuces pour rendre la recette encore plus rapide ou pour des variantes possibles avec peu d'ingrédients
+    `.trim();
 
   try {
     const response = await fetch('https://api.mistral.ai/v1/chat/completions', {
