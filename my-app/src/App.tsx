@@ -16,7 +16,7 @@ const App = () => {
 
   const callMistral = async () => {
     try {
-      const res = await fetch('/api/mistral', {
+      const res = await fetch('/api/test-key', {
         method: 'POST',
       });
   
