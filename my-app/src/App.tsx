@@ -18,18 +18,6 @@ const App = () => {
   const callMistral = async () => {
     if (ingredients.length === 0) return;
   
-    const prompt = `
-      Tu es un chef cuisinier expert. En te basant sur ces ingrédients : ${ingredients.join(
-        ", "
-      )},
-      propose-moi une recette adaptée aux étudiants :
-      - Titre de la recette
-      - Temps de préparation
-      - Liste complète des ingrédients (avec quantités approximatives)
-      - Étapes détaillées de la préparation
-      - Astuces et variantes possibles
-    `.trim();
-  
     setLoading(true);
     try {
       const res = await fetch('/api/test-key', {
@@ -39,7 +27,6 @@ const App = () => {
         },
         body: JSON.stringify({
           ingredients: ingredients,
-          prompt: prompt,
         }),
       });
   

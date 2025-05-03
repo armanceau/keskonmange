@@ -20,6 +20,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     propose-moi une recette rapide, adaptée aux étudiants, en moins de 25 minutes, sans nécessiter un four. 
     La recette doit être simple, facile à réaliser avec peu d'ustensiles. 
     La recette doit utiliser uniquement les ingrédients exprimés sans ajouter rien d'autre à part des épices et de l'huile.
+    Concentre-toi uniquement sur les aliments reconnus et comestibles.
     Voici ce que je souhaite :
     - Titre de la recette
     - Temps de préparation (maximum 20 minutes)
