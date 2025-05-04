@@ -90,3 +90,12 @@ h1 {
     font-family: inherit;
     border-radius: 8px;
 }
+
+.div-result {
+    margin-top: 20px;
+    border: 1px solid aliceblue;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    text-align: initial;
+    padding: .6em 1.2em;
+}

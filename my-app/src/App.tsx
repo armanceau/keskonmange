@@ -103,7 +103,7 @@ const App = () => {
       </button>
 
       {recipe && (
-        <div style={{ marginTop: '20px' }}>
+        <div className='div-result'>
           <h2>{recipe.title}</h2>
           <p><strong>Temps de préparation :</strong> {recipe.time}</p>
 
