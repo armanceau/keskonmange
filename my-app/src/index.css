@@ -59,4 +59,10 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+  .list-tag {
+    background-color: #f9f9f9 !important;
+  }
+  .div-result {
+    background-color: #f9f9f9 !important;
+  }
 }
