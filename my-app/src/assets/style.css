@@ -32,6 +32,10 @@ h1 {
     display: flex;
 }
 
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
 .gap-05{
     gap: 0.5rem;
 }
@@ -44,14 +48,10 @@ h1 {
 }
 
 @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+  .list-tag {
+    background-color: #f9f9f9;
   }
-  a:hover {
-    color: #747bff;
-  }
-  .custom-button {
+  .div-result {
     background-color: #f9f9f9;
   }
 }
@@ -81,3 +81,33 @@ h1 {
     text-align: initial;
     padding: .6em 1.2em;
 }
+
+@media (max-width: 768px) {
+    h1 {
+      font-size: 2.5em;
+    }
+  
+    .list-tag {
+      font-size: 0.9em;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .ingredientInput {
+      margin-bottom: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 2em;
+    }
+  
+    .card, .div-result {
+      padding: 1em;
+    }
+  
+    .list-tag {
+      font-size: 0.8em;
+    }
+  }
