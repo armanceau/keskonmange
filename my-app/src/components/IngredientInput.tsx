@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import '../assets/style.css'
 
 interface IngredientInputProps {
   ingredients: string[];
@@ -46,12 +47,13 @@ const IngredientInput = ({ ingredients, setIngredients }: IngredientInputProps) 
 
   return (
     <div>
-      <h2>Ingrédients</h2>
+      <h2>Mes ingrédients</h2>
       <input
         type="text"
         value={input}
+        className='ingredientInput'
         onChange={(e) => setInput(e.target.value)}
-        placeholder="Ajoute un ingrédient"
+        placeholder="➕ Ajoute un ingrédient"
       />
       {error && <div style={{ color: 'red' }}>{error}</div>}
       <button onClick={handleAdd}>Ajouter</button>

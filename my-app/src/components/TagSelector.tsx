@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './style.css'
+import '../assets/style.css'
 import commonIngredients from '../data/ingredients.json'
 
 interface TagSelectorProps {
@@ -26,7 +26,7 @@ const TagSelector = ({ ingredients, onSelect }: TagSelectorProps) => {
   };
 
   return (
-    <div className="flex gap-2 flex-wrap">
+    <div className="flex gap-05 flex-wrap content-center">
       {Object.keys(commonIngredients).map((ingredient) => (
         <button
           key={ingredient}
