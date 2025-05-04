@@ -20,11 +20,11 @@ const parseRecipe = (text: string): ParsedRecipe => {
   const tipsMatch = text.match(/Astuces\s*:\s*([\s\S]*)/);
 
   return {
-    title: `🍴 ${titleMatch?.[1]?.trim() || ''}`,
-    time: `⌛ ${timeMatch?.[1]?.trim() || ''}`,
-    ingredients: ingredientsMatch?.[1]?.trim().split('\n').filter(Boolean).map(i => `🥗 ${i.replace(/^[-–•*]\s*/, '')}`) || [],
-    steps: stepsMatch?.[1]?.trim().split('\n').filter(Boolean).map(s =>`🛠️ ${s.replace(/^\d+\.\s*/, '')}`) || [],
-    tips: tipsMatch?.[1]?.trim().split('\n').filter(Boolean).map(t => `💡 ${t.replace(/^[-–•*]\s*/, '')}`) || [],
+    title: titleMatch?.[1]?.trim() || '',
+    time: timeMatch?.[1]?.trim() || '',
+    ingredients: ingredientsMatch?.[1]?.trim().split('\n').filter(Boolean).map(i => i.replace(/^[-–•*]\s*/, '')) || [],
+    steps: stepsMatch?.[1]?.trim().split('\n').filter(Boolean).map(s => s.replace(/^\d+\.\s*/, '')) || [],
+    tips: tipsMatch?.[1]?.trim().split('\n').filter(Boolean).map(t => t.replace(/^[-–•*]\s*/, '')) || [],
   };
 };
 
@@ -103,24 +103,24 @@ const App = () => {
 
       {recipe && (
         <div className='div-result'>
-          <h2>{recipe.title}</h2>
-          <p><strong>Temps de préparation :</strong> {recipe.time}</p>
+          <h2>🍴 {recipe.title}</h2>
+          <p><strong>⌛ Temps de préparation :</strong> {recipe.time}</p>
 
-          <h3>Ingrédients :</h3>
+          <h3>🥗 Ingrédients :</h3>
           <ul>
             {recipe.ingredients.map((ing, idx) => (
               <li key={idx}>{ing}</li>
             ))}
           </ul>
 
-          <h3>Préparation :</h3>
+          <h3>🛠️ Préparation :</h3>
           <ol>
             {recipe.steps.map((step, idx) => (
               <li key={idx}>{step}</li>
             ))}
           </ol>
 
-          <h3>Astuces :</h3>
+          <h3>💡 Astuces :</h3>
           <ul>
             {recipe.tips.map((tip, idx) => (
               <li key={idx}>{tip}</li>
