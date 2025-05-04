@@ -20,11 +20,11 @@ const parseRecipe = (text: string): ParsedRecipe => {
   const tipsMatch = text.match(/Astuces\s*:\s*([\s\S]*)/);
 
   return {
-    title: titleMatch?.[1]?.trim() || '',
-    time: timeMatch?.[1]?.trim() || '',
-    ingredients: ingredientsMatch?.[1]?.trim().split('\n').filter(Boolean).map(i => i.replace(/^[-–•*]\s*/, '')) || [],
-    steps: stepsMatch?.[1]?.trim().split('\n').filter(Boolean).map(s => s.replace(/^\d+\.\s*/, '')) || [],
-    tips: tipsMatch?.[1]?.trim().split('\n').filter(Boolean).map(t => t.replace(/^[-–•*]\s*/, '')) || [],
+    title: `🍴 ${titleMatch?.[1]?.trim() || ''}`,
+    time: `⌛ ${timeMatch?.[1]?.trim() || ''}`,
+    ingredients: ingredientsMatch?.[1]?.trim().split('\n').filter(Boolean).map(i => `🥗 ${i.replace(/^[-–•*]\s*/, '')}`) || [],
+    steps: stepsMatch?.[1]?.trim().split('\n').filter(Boolean).map(s =>`🛠️ ${s.replace(/^\d+\.\s*/, '')}`) || [],
+    tips: tipsMatch?.[1]?.trim().split('\n').filter(Boolean).map(t => `💡 ${t.replace(/^[-–•*]\s*/, '')}`) || [],
   };
 };
 
