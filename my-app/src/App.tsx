@@ -95,7 +95,6 @@ const App = () => {
 
       <button
         onClick={callMistral}
-        className='custom-button'
         style={{ marginTop: '20px' }}
         disabled={ingredients.length === 0 || loading}
       >
