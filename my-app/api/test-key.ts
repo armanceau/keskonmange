@@ -28,6 +28,22 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     - Liste complète des ingrédients avec les quantités approximatives
     - Étapes de la préparation détaillées, en prenant soin de ne pas inclure de cuisson au four
     - Astuces pour rendre la recette encore plus rapide ou pour des variantes possibles avec peu d'ingrédients
+    Respecte scrupuleusement ce format de réponse, sans ajouter ni modifier l'ordre :
+    Titre de la recette : [Titre ici]
+    Temps de préparation : [Temps ici]
+    Ingrédients :
+    - [Ingrédient 1]
+    - [Ingrédient 2]
+    ...
+    Étapes de la préparation :
+    1. [Étape 1]
+    2. [Étape 2]
+    ...
+    Astuces :
+    - [Astuce 1]
+    - [Astuce 2]
+    ...
+    Ne saute aucune section, même si tu dois les laisser vides. N'ajoute aucun texte en dehors de ce format.
     `.trim();
 
   try {
