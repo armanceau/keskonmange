@@ -2,6 +2,7 @@ import { useState } from 'react';
 import TagSelector from './components/TagSelector';
 import IngredientInput from './components/IngredientInput';
 import './assets/style.css';
+import ButtonCopyPaste from './components/ButtonCopyPaste';
 
 type ParsedRecipe = {
   title: string;
@@ -46,6 +47,29 @@ const App = () => {
     setLoading(true);
 
     try {
+          if (window.location.hostname === 'localhost') {
+      const fakeRecipe = `
+        Titre de la recette : Salade étudiante express
+        Temps de préparation : 10 minutes
+        Ingrédients :
+        - 1 tomate
+        - 1 boîte de thon
+        - 1 poignée de pâtes froides
+        - Huile d'olive
+        - Sel, poivre
+        Étapes de la préparation :
+        1. Égoutter le thon.
+        2. Couper la tomate en dés.
+        3. Mélanger les pâtes, le thon et la tomate dans un bol.
+        4. Ajouter un filet d'huile d'olive, du sel et du poivre.
+        Astuces :
+        - Ajoute du maïs ou du fromage râpé si dispo.
+        - Tu peux utiliser du riz à la place des pâtes.
+      `;
+      const parsed = parseRecipe(fakeRecipe);
+      setRecipe(parsed);
+      return;
+    }
       const res = await fetch('/api/test-key', {
         method: 'POST',
         headers: {
@@ -101,8 +125,11 @@ const App = () => {
         {loading ? 'Chargement...' : 'Générer la recette 🍽️'}
       </button>
 
+
       {recipe && (
         <div className='div-result'>
+          <ButtonCopyPaste/>
+
           <h2>🍴 {recipe.title}</h2>
           <p><strong>⌛ Temps de préparation :</strong> {recipe.time}</p>
 
