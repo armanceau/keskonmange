@@ -26,6 +26,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     N’utilise que les ingrédients donnés, sans en ajouter d’autres sauf des épices et de l'huile.
 
+    TU peux séparer les almients en plusieurs préparations si ceux-là ne se marrient pas correctement.
+
     Respecte rigoureusement le format suivant, sans rien ajouter ni modifier l'ordre :
 
     Titre de la recette : [Titre ici]
