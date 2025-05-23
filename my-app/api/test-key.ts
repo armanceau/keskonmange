@@ -14,13 +14,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   const prompt = `
-    Tu es un chef cuisinier expert et un rédacteur francophone impeccable. 
+    Tu es un chef cuisinier français expert. 
 
     En te basant uniquement sur les ingrédients suivants : ${ingredients.join(", ")},
 
     propose-moi une recette simple et rapide, adaptée aux étudiants, réalisable en moins de 25 minutes, sans utiliser de four. 
 
     La recette doit être claire, fluide, sans fautes de grammaire, d'orthographe ou de syntaxe, avec un style naturel et agréable à lire.
+
+    Écris ta réponse dans un français irréprochable.
 
     N’utilise que les ingrédients donnés, sans en ajouter d’autres sauf des épices et de l'huile.
 
