@@ -1,14 +1,17 @@
-import { useState } from 'react';
-import '../assets/style.css'
+import { useState } from "react";
+import styles from "./IngredientInput.module.css";
 
 interface IngredientInputProps {
   ingredients: string[];
   setIngredients: (ingredients: string[]) => void;
 }
 
-const IngredientInput = ({ ingredients, setIngredients }: IngredientInputProps) => {
-  const [input, setInput] = useState('');
-  const [error, setError] = useState<string>('');
+const IngredientInput = ({
+  ingredients,
+  setIngredients,
+}: IngredientInputProps) => {
+  const [input, setInput] = useState("");
+  const [error, setError] = useState<string>("");
 
   const validateInput = (value: string) => {
     if (/^\d+$/.test(value)) {
@@ -16,47 +19,50 @@ const IngredientInput = ({ ingredients, setIngredients }: IngredientInputProps) 
       return false;
     }
 
-    if(value.length === 0){
+    if (value.length === 0) {
       setError("Un ingrédient invisible ? C’est de la magie noire ça. 🧙‍♂️");
       return false;
     }
 
     if (value.length > 25) {
-      setError("Oulah cowboy ! C’est un ingrédient, pas une autobiographie. 🤠");
+      setError(
+        "Oulah cowboy ! C’est un ingrédient, pas une autobiographie. 🤠"
+      );
       return false;
     }
 
-    if (value.includes('.')) {
+    if (value.includes(".")) {
       setError("Pas besoin de ponctuation, on cuisine, on rédige pas. 👍");
       return false;
     }
 
-    setError('');
+    setError("");
     return true;
   };
 
   const handleAdd = () => {
     const trimmed = input.trim();
     if (trimmed && !ingredients.includes(trimmed)) {
-      if(validateInput(trimmed)){
+      if (validateInput(trimmed)) {
         setIngredients([...ingredients, trimmed]);
-        setInput('');
+        setInput("");
       }
     }
   };
 
   return (
-    <div>
-      <h2>Mes ingrédients</h2>
+    <div className={styles["ingredient-input"]}>
+      <div>
+        Aliment
+      </div>
       <input
         type="text"
         value={input}
-        className='ingredientInput'
         onChange={(e) => setInput(e.target.value)}
-        placeholder="➕ Ajoute un ingrédient"
+        placeholder="Banane ..."
       />
-      {error && <div style={{ color: 'red' }}>{error}</div>}
-      <button onClick={handleAdd}>Ajouter</button>
+      {error && <div style={{ color: "red" }}>{error}</div>}
+      <button onClick={handleAdd}>+</button>
     </div>
   );
 };
