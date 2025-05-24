@@ -7,13 +7,13 @@
   overflow-y: auto;
 }
 
-.list-tag {
+.list-ingredient {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.tag {
+.ingredient {
   display: flex;
   justify-content: space-between;
   padding: 0em 0.5em;
@@ -25,6 +25,6 @@
   border-radius: 8px;
 }
 
-.list-tag > button {
+.list-ingredient > button {
   padding: 0.5em;
 }

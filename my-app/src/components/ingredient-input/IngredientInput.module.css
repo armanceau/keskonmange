@@ -18,4 +18,11 @@
   padding: 0rem 0.5rem;
   border-radius: 5px;
   background-color: var(--color-accent);
+  cursor: pointer;
+  color: var(--color-secondary);
+}
+
+.ingredient-input > button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
 }

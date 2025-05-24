@@ -1,6 +1,4 @@
 import { useState } from "react";
-import TagSelector from "./components/TagSelector";
-import IngredientInput from "./components/ingredient-input/IngredientInput";
 import "./assets/style.css";
 import ButtonCopyPaste from "./components/ButtonCopyPaste";
 import FilterSection from "./components/filter-section/FilterSection";
@@ -119,6 +117,7 @@ const App = () => {
         <FilterSection
           ingredients={ingredients}
           setIngredients={setIngredients}
+          onSelect={handleSelect}
         />
         <section className="main-content">
           <div className="main-content-left">
@@ -129,7 +128,6 @@ const App = () => {
 
             <button
               onClick={callMistral}
-              style={{ marginTop: "20px" }}
               disabled={ingredients.length === 0 || loading}
               className="button-generate"
             >
@@ -169,19 +167,10 @@ const App = () => {
             </div>
           )}
         </section>
-        {/* Composant recette */}
         {/* Tableau récapitulatif */}
       </main>
 
       <footer>armanceau github ...</footer>
-
-      <IngredientInput
-        ingredients={ingredients}
-        setIngredients={setIngredients}
-      />
-      <br />
-      <TagSelector ingredients={ingredients} onSelect={handleSelect} />
-      <hr />
     </>
   );
 };

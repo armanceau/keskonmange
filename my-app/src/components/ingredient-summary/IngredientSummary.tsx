@@ -11,9 +11,9 @@ const IngredientSummary: React.FC<Props> = ({ ingredients, onRemove }) => {
     <div className={styles["section-recap-ingredient"]}>
       <h3>Ingrédients sélectionnés :</h3>
       <hr />
-      <div className={styles["list-tag"]}>
+      <div className={styles["list-ingredient"]}>
         {ingredients.map((ingredient, index) => (
-          <div key={index} className={styles["tag"]}>
+          <div key={index} className={styles["ingredient"]}>
             {ingredient}
             <button
               onClick={() => onRemove(ingredient)}

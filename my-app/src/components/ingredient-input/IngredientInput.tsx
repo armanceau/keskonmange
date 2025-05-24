@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "./IngredientInput.module.css";
+import { ForkKnife } from "react-bootstrap-icons";
 
 interface IngredientInputProps {
   ingredients: string[];
@@ -53,7 +54,7 @@ const IngredientInput = ({
   return (
     <div className={styles["ingredient-input"]}>
       <div>
-        Aliment
+        <ForkKnife />
       </div>
       <input
         type="text"
@@ -62,7 +63,9 @@ const IngredientInput = ({
         placeholder="Banane ..."
       />
       {error && <div style={{ color: "red" }}>{error}</div>}
-      <button onClick={handleAdd}>+</button>
+      <button onClick={handleAdd} disabled={input.length === 0}>
+        +
+      </button>
     </div>
   );
 };

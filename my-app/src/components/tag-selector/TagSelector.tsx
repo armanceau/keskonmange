@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import '../assets/style.css'
-import commonIngredients from '../data/ingredients.json'
+import { useState, useEffect } from "react";
+import commonIngredients from "../../data/ingredients.json";
+import styles from "./TagSelector.module.css";
 
 interface TagSelectorProps {
   ingredients: string[];
@@ -17,7 +17,9 @@ const TagSelector = ({ ingredients, onSelect }: TagSelectorProps) => {
   const handleClick = (ingredient: string) => {
     let updatedIngredients;
     if (selectedIngredients.includes(ingredient)) {
-      updatedIngredients = selectedIngredients.filter((ing) => ing !== ingredient);
+      updatedIngredients = selectedIngredients.filter(
+        (ing) => ing !== ingredient
+      );
     } else {
       updatedIngredients = [...selectedIngredients, ingredient];
     }
@@ -26,11 +28,15 @@ const TagSelector = ({ ingredients, onSelect }: TagSelectorProps) => {
   };
 
   return (
-    <div className="flex gap-05 flex-wrap content-center">
+    <div className={styles["list-tag"]}>
       {Object.keys(commonIngredients).map((ingredient) => (
         <button
           key={ingredient}
-          className={selectedIngredients.includes(ingredient) ? 'tag-selected' : ''}
+          className={`${styles["tag"]} ${
+            selectedIngredients.includes(ingredient)
+              ? styles["tag-selected"]
+              : ""
+          }`}
           onClick={() => handleClick(ingredient)}
           title={ingredient}
         >
