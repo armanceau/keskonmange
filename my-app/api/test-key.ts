@@ -1,13 +1,15 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node';
+import type { VercelRequest, VercelResponse } from "@vercel/node";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   const apiKey = process.env.MISTRAL_API_KEY;
+
+  console.log("clé api :" + apiKey);
 
   if (!apiKey) {
     return res.status(500).json({ error: "Clé API non trouvée 🕵️‍♂️" });
   }
 
-  const { ingredients } = req.body; 
+  const { ingredients } = req.body;
 
   if (!ingredients || ingredients.length === 0) {
     return res.status(400).json({ error: "Aucun ingrédient fourni." });
@@ -16,7 +18,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const prompt = `
     Tu es un chef cuisinier français expert. 
 
-    En te basant uniquement sur les ingrédients suivants : ${ingredients.join(", ")},
+    En te basant uniquement sur les ingrédients suivants : ${ingredients.join(
+      ", "
+    )},
 
     propose-moi une recette simple et rapide, adaptée aux étudiants, réalisable en moins de 25 minutes, sans utiliser de four. 
 
@@ -65,21 +69,21 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     `.trim();
 
   try {
-    const response = await fetch('https://api.mistral.ai/v1/chat/completions', {
-      method: 'POST',
+    const response = await fetch("https://api.mistral.ai/v1/chat/completions", {
+      method: "POST",
       headers: {
-        'Authorization': `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: 'mistral-tiny',
+        model: "mistral-tiny",
         messages: [
           {
-            role: 'system',
-            content: 'Tu es un assistant culinaire amical et précis.',
+            role: "system",
+            content: "Tu es un assistant culinaire amical et précis.",
           },
           {
-            role: 'user',
+            role: "user",
             content: prompt,
           },
         ],
@@ -87,18 +91,62 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     });
 
     const raw = await response.text();
-    console.log('Réponse brute de Mistral:', raw);
+    console.log("Réponse brute de Mistral:", raw);
 
     let data;
     try {
       data = JSON.parse(raw);
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (err) {
-      return res.status(500).json({ error: 'Réponse Mistral non JSON', raw });
+      return res.status(500).json({ error: "Réponse Mistral non JSON", raw });
     }
 
     res.status(200).json({ result: data.choices[0].message.content });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: 'Erreur lors de la requête à Mistral.' });
+    res.status(500).json({ error: "Erreur lors de la requête à Mistral." });
   }
+}
+
+function parseRecipeText(text: string) {
+  const lines = text
+    .split("\n")
+    .map((line) => line.trim())
+    .filter((line) => line.length > 0);
+
+  let title = "Recette générée";
+  let time = "15-20 minutes";
+  const ingredients: string[] = [];
+  const steps: string[] = [];
+  const tips: string[] = [];
+
+  let currentSection = "";
+
+  for (const line of lines) {
+    if (line.startsWith("Titre de la recette :")) {
+      title = line.replace("Titre de la recette :", "").trim();
+    } else if (line.startsWith("Temps de préparation :")) {
+      time = line.replace("Temps de préparation :", "").trim();
+    } else if (line === "Ingrédients :") {
+      currentSection = "ingredients";
+    } else if (line === "Étapes de la préparation :") {
+      currentSection = "steps";
+    } else if (line === "Astuces :") {
+      currentSection = "tips";
+    } else if (line.startsWith("- ") && currentSection === "ingredients") {
+      ingredients.push(line.replace("- ", ""));
+    } else if (line.match(/^\d+\./) && currentSection === "steps") {
+      steps.push(line.replace(/^\d+\.\s*/, ""));
+    } else if (line.startsWith("- ") && currentSection === "tips") {
+      tips.push(line.replace("- ", ""));
+    }
+  }
+
+  return {
+    title,
+    time,
+    ingredients,
+    steps,
+    tips,
+  };
 }

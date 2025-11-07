@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="580494d1-8857-4026-b6c9-d59f83cba7d9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.agent.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask2agent.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.edit.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copilotDiffState.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/keskonmange.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/postcss.config.cjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/tailwind.config.cjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/assets/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/components/ButtonCopyPaste.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/ButtonCopyPaste.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/components/filter-section/FilterSection.module.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/components/filter-section/FilterSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/filter-section/FilterSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/components/ingredient-input/IngredientInput.module.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/components/ingredient-input/IngredientInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/ingredient-input/IngredientInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/components/ingredient-summary/IngredientSummary.module.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/components/ingredient-summary/IngredientSummary.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/ingredient-summary/IngredientSummary.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/components/tag-selector/TagSelector.module.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/components/tag-selector/TagSelector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/tag-selector/TagSelector.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/tsconfig.app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/vite.config.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="356LypzmHhXCJxjMsODofpKL5gC" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "refacto/front",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/arthu/repos/keskonmange"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="580494d1-8857-4026-b6c9-d59f83cba7d9" name="Changes" comment="" />
+      <created>1762425831689</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1762425831689</updated>
+    </task>
+    <servers />
+  </component>
+</project>
