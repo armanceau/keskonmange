@@ -1,5 +1,4 @@
 import { useState } from "react";
-import ButtonCopyPaste from "./components/ButtonCopyPaste";
 import FilterSection from "./components/FilterSection";
 import IngredientSummary from "./components/IngredientSummary";
 import { Button } from "@/components/ui/button";
@@ -230,7 +229,6 @@ const App = () => {
                     >
                       ⏱️ {recipe.time}
                     </Badge>
-                    {/* <ButtonCopyPaste /> */}
                   </div>
                 </div>
               </CardHeader>
