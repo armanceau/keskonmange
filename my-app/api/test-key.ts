@@ -6,7 +6,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (!apiKey) {
     return res.status(500).json({ error: "Clé API non trouvée 🕵️‍♂️" });
   }
-  const { ingredients, regime } = req.body;
+  const { ingredients, regime, personne } = req.body;
 
   if (!ingredients || ingredients.length === 0) {
     return res.status(400).json({ error: "Aucun ingrédient fourni." });
@@ -17,7 +17,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     En te basant uniquement sur les ingrédients suivants : ${ingredients.join(
       ", "
-    )},${regime ? ` en respectant un régime ${regime},` : ""}
+    )},${regime ? ` en respectant un régime ${regime},` : ""}${
+    personne ? ` pour ${personne},` : ""
+  }
 
     propose-moi une recette simple et rapide, adaptée aux étudiants, réalisable en moins de 25 minutes, sans utiliser de four. 
 

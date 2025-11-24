@@ -16,6 +16,7 @@ import {
 } from "./components/ui/tooltip";
 import { Combobox } from "./components/ui/combobox";
 import regimes from "./data/regimes.json";
+import personne from "./data/personne.json";
 
 type ParsedRecipe = {
   title: string;
@@ -65,7 +66,7 @@ const App = () => {
   const [ingredients, setIngredients] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [recipe, setRecipe] = useState<ParsedRecipe | null>(null);
-  const [filters, setFilters] = useState({ regime: "" });
+  const [filters, setFilters] = useState({ regime: "", personne: "" });
 
   const handleSelect = (updatedIngredients: string[]) => {
     setIngredients(updatedIngredients);
@@ -108,7 +109,11 @@ const App = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ ingredients, regime: filters.regime }),
+        body: JSON.stringify({
+          ingredients,
+          regime: filters.regime,
+          personne: filters.personne,
+        }),
       });
 
       const data = await res.json();
@@ -169,20 +174,36 @@ const App = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <Combobox
-                  options={[
-                    { label: "Tous les régimes", value: "" },
-                    ...Object.entries(regimes).map(([key, value]) => ({
-                      label: key,
-                      value: value,
-                    })),
-                  ]}
-                  value={filters.regime}
-                  onChange={(value) =>
-                    setFilters({ ...filters, regime: value })
-                  }
-                  placeholder="Régime alimentaire"
-                />
+                <div className="flex gap-1">
+                  <Combobox
+                    options={[
+                      { label: "Tous les régimes", value: "" },
+                      ...Object.entries(regimes).map(([key, value]) => ({
+                        label: key,
+                        value: value,
+                      })),
+                    ]}
+                    value={filters.regime}
+                    onChange={(value) =>
+                      setFilters({ ...filters, regime: value })
+                    }
+                    placeholder="Régime alimentaire"
+                  />
+                  <Combobox
+                    options={[
+                      { label: "Nombre de personnes", value: "" },
+                      ...Object.entries(personne).map(([key, value]) => ({
+                        label: value,
+                        value: key,
+                      })),
+                    ]}
+                    value={filters.personne}
+                    onChange={(value) =>
+                      setFilters({ ...filters, personne: value })
+                    }
+                    placeholder="Nombre de personnes"
+                  />
+                </div>
               </CardContent>
             </Card>
 
