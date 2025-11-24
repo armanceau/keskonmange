@@ -109,7 +109,11 @@ const App = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ ingredients, regime: filters.regime, personne: filters.personne}),
+        body: JSON.stringify({
+          ingredients,
+          regime: filters.regime,
+          personne: filters.personne,
+        }),
       });
 
       const data = await res.json();
@@ -187,10 +191,10 @@ const App = () => {
                   />
                   <Combobox
                     options={[
-                      { label: "Nombre de personne", value: "" },
+                      { label: "Nombre de personnes", value: "" },
                       ...Object.entries(personne).map(([key, value]) => ({
-                        label: key,
-                        value: value,
+                        label: value,
+                        value: key,
                       })),
                     ]}
                     value={filters.personne}
