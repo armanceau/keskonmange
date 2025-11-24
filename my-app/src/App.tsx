@@ -17,6 +17,7 @@ import {
 import { Combobox } from "./components/ui/combobox";
 import regimes from "./data/regimes.json";
 import personne from "./data/personne.json";
+import { Input } from "./components/ui/input";
 
 type ParsedRecipe = {
   title: string;
@@ -66,7 +67,11 @@ const App = () => {
   const [ingredients, setIngredients] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [recipe, setRecipe] = useState<ParsedRecipe | null>(null);
-  const [filters, setFilters] = useState({ regime: "", personne: "" });
+  const [filters, setFilters] = useState({
+    regime: "",
+    personne: "",
+    tempsPreparation: "",
+  });
 
   const handleSelect = (updatedIngredients: string[]) => {
     setIngredients(updatedIngredients);
@@ -124,6 +129,12 @@ const App = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleFilterChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    setFilters({ ...filters, [e.target.name]: e.target.value });
   };
 
   return (
@@ -202,6 +213,32 @@ const App = () => {
                       setFilters({ ...filters, personne: value })
                     }
                     placeholder="Nombre de personnes"
+                  />
+                  <Input
+                    id="tempsPreparation"
+                    type="number"
+                    name="tempsPreparation"
+                    placeholder="10 minutes..."
+                    value={filters.tempsPreparation}
+                    onChange={handleFilterChange}
+                    onKeyDown={(e) => {
+                      if (
+                        !/[0-9]/.test(e.key) &&
+                        ![
+                          "Backspace",
+                          "Delete",
+                          "Tab",
+                          "Enter",
+                          "ArrowLeft",
+                          "ArrowRight",
+                          "ArrowUp",
+                          "ArrowDown",
+                        ].includes(e.key)
+                      ) {
+                        e.preventDefault();
+                      }
+                    }}
+                    className="w-48 border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-sm px-3 py-2 rounded-md"
                   />
                 </div>
               </CardContent>
