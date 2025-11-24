@@ -6,7 +6,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (!apiKey) {
     return res.status(500).json({ error: "Clé API non trouvée 🕵️‍♂️" });
   }
-  const { ingredients, regime, personne, tempsPreparation } = req.body;
+  const { ingredients, regime, personne, tempsPreparation, platChaud } =
+    req.body;
 
   if (!ingredients || ingredients.length === 0) {
     return res.status(400).json({ error: "Aucun ingrédient fourni." });
@@ -19,7 +20,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       ", "
     )},${regime ? ` en respectant un régime ${regime},` : ""}${
     personne ? ` pour ${personne},` : ""
-  }${tempsPreparation ? ` en ${tempsPreparation} minutes maximum.` : ""}
+  }${tempsPreparation ? ` en ${tempsPreparation} minutes maximum.` : ""} ${
+    platChaud ? ` Le plat doit être chaud.` : "le plat doit être froid."
+  }
 
     propose-moi une recette simple et rapide, adaptée aux étudiants, réalisable en moins de 25 minutes, sans utiliser de four. 
 
