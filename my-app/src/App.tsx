@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import DarkModeToggle from "./lib/darkMode";
-import { Carrot } from "lucide-react";
+import { Carrot, Coffee, Snowflake } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -18,6 +18,7 @@ import { Combobox } from "./components/ui/combobox";
 import regimes from "./data/regimes.json";
 import personne from "./data/personne.json";
 import { Input } from "./components/ui/input";
+import { Switch } from "./components/ui/switch";
 
 type ParsedRecipe = {
   title: string;
@@ -71,6 +72,7 @@ const App = () => {
     regime: "",
     personne: "",
     tempsPreparation: "",
+    platChaud: true, // true = chaud (par défaut), false = froid
   });
 
   const handleSelect = (updatedIngredients: string[]) => {
@@ -118,6 +120,7 @@ const App = () => {
           ingredients,
           regime: filters.regime,
           personne: filters.personne,
+          platChaud: filters.platChaud,
         }),
       });
 
@@ -185,7 +188,7 @@ const App = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="flex gap-1">
+                <div className="flex gap-1 flex-wrap">
                   <Combobox
                     options={[
                       { label: "Tous les régimes", value: "" },
@@ -241,6 +244,31 @@ const App = () => {
                     }}
                     className="w-48 border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-sm px-3 py-2 rounded-md"
                   />
+                  <div className="flex items-center gap-2 px-2 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 shadow-sm">
+                    <Coffee
+                      className={`h-4 w-4 transition-colors ${
+                        filters.platChaud ? "text-orange-500" : "text-gray-400"
+                      }`}
+                    />
+                    <Switch
+                      checked={filters.platChaud}
+                      onCheckedChange={(checked) =>
+                        setFilters({ ...filters, platChaud: checked })
+                      }
+                      className={`transition-all duration-200 cursor-pointer ${
+                        filters.platChaud
+                          ? "bg-orange-500 data-[state=checked]:bg-orange-500"
+                          : "bg-blue-500 data-[state=unchecked]:bg-blue-500"
+                      }`}
+                    >
+                      <span className="sr-only">Plat chaud ou froid</span>
+                    </Switch>
+                    <Snowflake
+                      className={`h-4 w-4 transition-colors ${
+                        !filters.platChaud ? "text-blue-500" : "text-gray-400"
+                      }`}
+                    />
+                  </div>
                 </div>
               </CardContent>
             </Card>
