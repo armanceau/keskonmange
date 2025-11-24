@@ -244,7 +244,7 @@ const App = () => {
                     }}
                     className="w-48 border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-sm px-3 py-2 rounded-md"
                   />
-                  <div className="flex items-center gap-2 px-2 rounded-lg border border-zinc-300 dark:border-zinc-700 dark:bg-zinc-900">
+                  <div className="flex items-center gap-2 px-2 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 shadow-sm">
                     <Coffee
                       className={`h-4 w-4 transition-colors ${
                         filters.platChaud ? "text-orange-500" : "text-gray-400"
