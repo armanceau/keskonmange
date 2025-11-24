@@ -14,6 +14,8 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "./components/ui/tooltip";
+import { Combobox } from "./components/ui/combobox";
+import regimes from "./data/regimes.json";
 
 type ParsedRecipe = {
   title: string;
@@ -63,6 +65,7 @@ const App = () => {
   const [ingredients, setIngredients] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [recipe, setRecipe] = useState<ParsedRecipe | null>(null);
+  const [filters, setFilters] = useState({ regime: "" });
 
   const handleSelect = (updatedIngredients: string[]) => {
     setIngredients(updatedIngredients);
@@ -75,8 +78,6 @@ const App = () => {
   const callMistral = async () => {
     if (ingredients.length === 0) return;
     setLoading(true);
-
-    console.log("je rentre");
 
     try {
       // if (window.location.hostname === "localhost") {
@@ -107,7 +108,7 @@ const App = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ ingredients }),
+        body: JSON.stringify({ ingredients, regime: filters.regime }),
       });
 
       const data = await res.json();
@@ -164,6 +165,31 @@ const App = () => {
               <CardHeader className="pb-4">
                 <CardTitle className="text-xl font-semibold flex items-center gap-2 dark:text-white">
                   <span className="h-5 w-5 bg-linear-to-r from-green-500 to-emerald-500 rounded-full"></span>
+                  Filtres
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <Combobox
+                  options={[
+                    { label: "Tous les régimes", value: "" },
+                    ...Object.entries(regimes).map(([key, value]) => ({
+                      label: key,
+                      value: value,
+                    })),
+                  ]}
+                  value={filters.regime}
+                  onChange={(value) =>
+                    setFilters({ ...filters, regime: value })
+                  }
+                  placeholder="Régime alimentaire"
+                />
+              </CardContent>
+            </Card>
+
+            <Card className="shadow-sm border-b border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 backdrop-blur-sm">
+              <CardHeader className="pb-4">
+                <CardTitle className="text-xl font-semibold flex items-center gap-2 dark:text-white">
+                  <span className="h-5 w-5 bg-linear-to-r from-green-500 to-emerald-500 rounded-full"></span>
                   Ingrédients disponibles
                 </CardTitle>
               </CardHeader>
@@ -176,7 +202,6 @@ const App = () => {
               </CardContent>
             </Card>
 
-            {/* Résumé et génération */}
             <Card className="shadow-sm border-b border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 backdrop-blur-sm">
               <CardContent className="p-6">
                 <IngredientSummary
