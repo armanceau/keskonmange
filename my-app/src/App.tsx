@@ -217,6 +217,7 @@ const App = () => {
                   <Input
                     id="tempsPreparation"
                     type="number"
+                    aria-label="Temps de préparation en minutes"
                     name="tempsPreparation"
                     placeholder="10 minutes..."
                     value={filters.tempsPreparation}

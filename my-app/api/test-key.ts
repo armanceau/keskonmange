@@ -19,7 +19,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       ", "
     )},${regime ? ` en respectant un régime ${regime},` : ""}${
     personne ? ` pour ${personne},` : ""
-  }${tempsPreparation ? ` en maximum ${tempsPreparation} minutes.` : ""}
+  }${tempsPreparation ? ` en ${tempsPreparation} minutes maximum.` : ""}
 
     propose-moi une recette simple et rapide, adaptée aux étudiants, réalisable en moins de 25 minutes, sans utiliser de four. 
 
