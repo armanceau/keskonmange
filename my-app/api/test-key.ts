@@ -21,7 +21,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     )},${regime ? ` en respectant un régime ${regime},` : ""}${
     personne ? ` pour ${personne},` : ""
   }${tempsPreparation ? ` en ${tempsPreparation} minutes maximum.` : ""} ${
-    platChaud ? ` Le plat doit être chaud.` : "le plat doit être froid."
+    platChaud ? ` Le plat doit être chaud.` : " Le plat doit être froid."
   }
 
     propose-moi une recette simple et rapide, adaptée aux étudiants, réalisable en moins de 25 minutes, sans utiliser de four. 
