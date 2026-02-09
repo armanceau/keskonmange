@@ -5,48 +5,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="580494d1-8857-4026-b6c9-d59f83cba7d9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.agent.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask2agent.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.edit.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/copilotDiffState.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/keskonmange.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app/postcss.config.cjs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app/tailwind.config.cjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/assets/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/components/ButtonCopyPaste.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/ButtonCopyPaste.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/components/filter-section/FilterSection.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/components/filter-section/FilterSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/filter-section/FilterSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/components/ingredient-input/IngredientInput.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/components/ingredient-input/IngredientInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/ingredient-input/IngredientInput.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/components/ingredient-summary/IngredientSummary.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/components/ingredient-summary/IngredientSummary.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/ingredient-summary/IngredientSummary.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/components/tag-selector/TagSelector.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/components/tag-selector/TagSelector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/components/tag-selector/TagSelector.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/tsconfig.app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/vite.config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/api/prompts/externalSitePrompt.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app/api/prompts/recipePrompt.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/api/test-key.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/api/test-key.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "armanceau"
+  }
 }]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/armanceau/keskonmange.git",
+    "accountId": "96290c1d-e968-4778-b23f-a238a3e4d41d"
+  }
+}]]></component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="$USER_HOME$/Downloads/php-8.4.12-Win32-vs17-x64/php.exe" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="356LypzmHhXCJxjMsODofpKL5gC" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -59,17 +64,38 @@
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "refacto/front",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/arthu/repos/keskonmange"
+    "last_opened_file_path": "C:/Users/arthu/repos/keskonmange",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true",
+    "ts.external.directory.path": "C:\\Users\\arthu\\repos\\keskonmange\\my-app\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-26cb7f24e5b0-intellij.indexing.shared.core-IU-253.29346.240" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.29346.240" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="580494d1-8857-4026-b6c9-d59f83cba7d9" name="Changes" comment="" />
@@ -77,7 +103,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1762425831689</updated>
+      <workItem from="1770641946378" duration="998000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

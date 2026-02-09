@@ -33,10 +33,10 @@ const parseRecipe = (text: string): ParsedRecipe => {
   const timeMatch = text.match(/Temps de préparation\s*:\s*(.+)/);
 
   const ingredientsMatch = text.match(
-    /Ingrédients\s*:\s*([\s\S]*?)Étapes de la préparation\s*:/
+    /Ingrédients\s*:\s*([\s\S]*?)Étapes de la préparation\s*:/,
   );
   const stepsMatch = text.match(
-    /Étapes de la préparation\s*:\s*([\s\S]*?)Astuces\s*:/
+    /Étapes de la préparation\s*:\s*([\s\S]*?)Astuces\s*:/,
   );
   const tipsMatch = text.match(/Astuces\s*:\s*([\s\S]*)/);
 
@@ -111,7 +111,7 @@ const App = () => {
       //   setRecipe(parsed);
       //   return;
       // }
-      const res = await fetch("/api/test-key", {
+      const res = await fetch("/api/site", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -135,7 +135,7 @@ const App = () => {
   };
 
   const handleFilterChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
     setFilters({ ...filters, [e.target.name]: e.target.value });
   };
