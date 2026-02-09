@@ -23,7 +23,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const origin = req.headers.origin;
   const allowedOrigins = new Set([
     "http://localhost:3000",
-    "https://axelle-a-atble.vercel.app",
+    "https://axelle-a-table.vercel.app",
   ]);
 
   if (origin && allowedOrigins.has(origin)) {
