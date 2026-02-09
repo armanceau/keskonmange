@@ -47,7 +47,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   try {
     const result = await callMistral(apiKey, [
-      { role: "system", content: "Tu es un assistant culinaire amical et précis." },
+      { role: "system", content: "Tu es un assistant culinaire." },
       { role: "user", content: prompt },
     ]);
 
